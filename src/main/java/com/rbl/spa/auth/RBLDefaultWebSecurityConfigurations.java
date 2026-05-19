@@ -6,7 +6,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository;
 
-@ComponentScan("com.idfc.spa.auth")
+@ComponentScan("com.rbl.spa.auth")
 public abstract class RBLDefaultWebSecurityConfigurations extends RBLWebSecurityConfigurations<RBLUser> {
 
     RBLDefaultStatusProvider statusProvider = new RBLDefaultStatusProvider();
@@ -36,14 +36,13 @@ public abstract class RBLDefaultWebSecurityConfigurations extends RBLWebSecurity
 
     @Override
     protected String getSAMLSignOnURL() {
-        return "/saml2/authenticate/idfc";
+        return "/saml2/authenticate/rbl";
     }
 
     @Override
     protected void configureSAML(HttpSecurity http, AuthenticationManager authManager, String loginURL) throws Exception {
-        // https://gbpaymentsplatform.uat.idfcfirst.bank.in/epfo/dashboard/api/v1/saml2/authenticate/idfc
-        // https://gbpaymentsplatform.uat.idfcfirst.bank.in/epfo/dashboard/api/v1/saml2/authenticate/idfc
-        // https://gbpaymentsplatform.uat.idfcfirst.bank.in/epfo/dashboard/api/v1/auth/saml2/login/idfc
+        // https://govconnect360uat.rbl.bank.in/epfo/dashboard/api/v1/saml2/authenticate/rbl
+        // https://govconnect360uat.rbl.bank.in/epfo/dashboard/api/v1/auth/saml2/login/rbl
 
         http.saml2Login(saml2 -> saml2
                 .authenticationManager(authManager)
