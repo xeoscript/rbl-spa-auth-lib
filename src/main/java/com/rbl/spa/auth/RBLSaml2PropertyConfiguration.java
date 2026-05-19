@@ -13,7 +13,7 @@ public interface RBLSaml2PropertyConfiguration {
     @Config(name = "rbl.saml-entity-id")
     String entityID();
 
-    @Config(name = "rbl.sml-metadata-path")
+    @Config(name = "rbl.saml-metadata-path")
     String metadataPath();
 
     @Config(name = "rbl.saml-acs-url")
