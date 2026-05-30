@@ -48,7 +48,7 @@ public abstract class RBLDefaultWebSecurityConfigurations extends RBLWebSecurity
                 .authenticationManager(authManager)
                 .relyingPartyRegistrationRepository(this.relyingPartyRegistrationRepository)
                 .loginProcessingUrl(loginURL + "{registrationId}")
-                .successHandler(this::sendSAMLAuthSuccessResponse)
+                .successHandler(this::sendSSOAuthSuccessResponse)
         );
     }
 
