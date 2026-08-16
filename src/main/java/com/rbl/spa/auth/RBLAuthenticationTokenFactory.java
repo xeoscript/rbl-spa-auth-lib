@@ -1,6 +1,7 @@
 package com.rbl.spa.auth;
 
 import com.xeoscript.unisessions.util.AuthenticationTokenFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 @Component
+@ConditionalOnClass(name = "com.xeoscript.unisessions.util.AuthenticationTokenFactory")
 public class RBLAuthenticationTokenFactory implements AuthenticationTokenFactory {
 
     @Override
