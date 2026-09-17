@@ -6,19 +6,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RBLSAMLSPAWebSecurityAuthConfigurerExtension
-        extends SAMLSPAWebSecurityAuthConfigurerExtension<RBLUser, RBLAuthenticationToken, RBLSAMLAuthProvider> {
+        extends SAMLSPAWebSecurityAuthConfigurerExtension<RBLUser, RBLSaml2PropertyConfiguration, RBLAuthenticationToken, RBLSAMLAuthProvider> {
 
 
     public RBLSAMLSPAWebSecurityAuthConfigurerExtension(
+            RBLSaml2PropertyConfiguration configuration,
             RBLSAMLAuthProvider samlAuthenticationProvider,
             RelyingPartyRegistrationRepository relyingPartyRegistrationRepository
     ) {
-        super(samlAuthenticationProvider, relyingPartyRegistrationRepository);
-    }
-
-    @Override
-    protected String ssoRedirectURL() {
-        return "/saml2/authenticate/rbl";
+        super(configuration, samlAuthenticationProvider, relyingPartyRegistrationRepository);
     }
 
 }
